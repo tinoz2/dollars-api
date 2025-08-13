@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('app/assets/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+    name: "dark";
+    name: "light";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins";
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(45deg,
+            #0a0815,
+            #121026,
+            #1a0a2a,
+            #2a0630,
+            #160a1a,
+            #0a1a1a,
+            #0a2a1a,
+            #2a0a1a);
+    background-size: 300% 300%;
+    animation: gradientShift 16s ease infinite alternate,
+        hueRotate 40s linear infinite;
+}
+
+html[data-theme="light"] body {
+    background: linear-gradient(45deg,
+            #f2d9e5,
+            #a8cbb7,
+            #c3b9dd,
+            #fbfbfd,
+            #f9f7fa,
+            #b7d0bb,
+            #d1c6e5,
+            #fcfcfe);
+    background-size: 300% 300%;
+    animation: gradientShift 16s ease infinite alternate,
+        hueRotateLight 40s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    25% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 50% 100%;
+    }
+
+    75% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes hueRotate {
+    0% {
+        filter: hue-rotate(0deg) brightness(95%);
+    }
+
+    50% {
+        filter: hue-rotate(10deg) brightness(100%);
+    }
+
+    100% {
+        filter: hue-rotate(-5deg) brightness(98%);
+    }
+}
+
+@keyframes hueRotateLight {
+    0% {
+        filter: hue-rotate(0deg) brightness(115%);
+    }
+
+    50% {
+        filter: hue-rotate(8deg) brightness(118%);
+    }
+
+    100% {
+        filter: hue-rotate(-8deg) brightness(116%);
+    }
+}
+
+.toast,
+.toast-success,
+.toast-error,
+.toast-info,
+.toast-warning {
+    box-shadow: none !important;
+    font-size: 13px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+}
+
+.stat-title {
+    font-size: 0.85rem;
+}
+
+html[data-theme="light"] .stat-title,
+html[data-theme="light"] .stat-desc,
+html[data-theme="light"] .label {
+    color: #393131;
+}
+
+html[data-theme="light"] .footer {
+    color: #222;
+}
+
+html[data-theme="light"] .light-border {
+    border: #0a0815 1px solid;
+}
+
+html[data-theme="light"] .badge-light {
+    border: red 1px solid;
+    color: red;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -1,0 +1,25 @@
+<div>
+    <div class="grid lg:grid-cols-4 grid-cols-2">
+        @for(dollar of dollarsFiltered(); track $index){
+        <div>
+            <div class="!mb-1">
+                <strong class="text-2xl font-bold text-primary">
+                    Dólar {{dollar.casa === 'bolsa' ? 'MEP' : dollar.casa | titlecase}}
+                </strong>
+            </div>
+            <div class="stats stats-vertical">
+                <div class="stat !pb-2">
+                    <div class="stat-title">Compra</div>
+                    <div class="stat-value">${{dollar.compra}}</div>
+                    <div class="stat-desc">{{porcentajeCambioCompra()[$index]}}</div>
+                </div>
+                <div class="stat !mt-2">
+                    <div class="stat-title">Venta</div>
+                    <div class="stat-value">${{dollar.venta}}</div>
+                    <div class="stat-desc">{{porcentajeCambioVenta()[$index]}}</div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
